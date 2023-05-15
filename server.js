@@ -11,6 +11,10 @@ app.use(express.json())
 app.use(cors())
 app.listen(PORT, () => console.log('running on port ' + PORT))
 
+app.get('/persistence', async (req, res) => {
+    res.send("oi")
+})
+
 app.post('/completions', async (req, res) => {
     const options = {
         method: "POST",
@@ -25,7 +29,7 @@ app.post('/completions', async (req, res) => {
         })
     }
     try{
-       const response = await fetch('https://api.openai.com/v1/chat/completions', options)
+       const response = await fetch('https://localhost:3000/completions', options)
        const data = await response.json()
        res.send(data)
     }catch(error){
