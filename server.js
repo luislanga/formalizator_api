@@ -1,4 +1,5 @@
 require("dotenv/config")
+const fetch = require('cross-fetch')
 const express = require('express')
 const cors = require('cors')
 const PORT = 3000
